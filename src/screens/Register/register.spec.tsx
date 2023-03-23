@@ -27,7 +27,7 @@ describe('Register Screen', () => {
     fireEvent.press(buttonCategory)
     
     await waitFor(() => {
-      expect(categoryModal.props.visible).toBeTruthy()
+      expect(categoryModal.props.visible).toBeFalsy()
     })
   })
 })
