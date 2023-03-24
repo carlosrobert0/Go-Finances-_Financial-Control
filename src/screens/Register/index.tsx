@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
-import { 
-  Keyboard, 
-  Modal, 
-  TouchableWithoutFeedback,
-  Alert
+import {
+  Alert, Keyboard,
+  Modal,
+  TouchableWithoutFeedback
 } from 'react-native'
 
-import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import uuid from 'react-native-uuid'
+import * as Yup from 'yup'
 
-import { useForm } from 'react-hook-form'
 import { useNavigation } from '@react-navigation/native'
+import { useForm } from 'react-hook-form'
 import { useAuth } from '../../hooks/auth'
 
 import { Button } from '../../components/Form/Button'
@@ -24,12 +23,8 @@ import { TransactionTypeButton } from '../../components/Form/TransactionTypeButt
 import { CategorySelect } from '../CategorySelect'
 
 import {
-  Container,
-  Header,
-  Title,
-  Form,
-  Fields,
-  TransactionsTypes
+  Container, Fields, Form, Header,
+  Title, TransactionsTypes
 } from './styles'
 
 type FormData = {
@@ -169,6 +164,7 @@ export function Register() {
             </TransactionsTypes>
 
             <CategorySelectButton
+              testID='button-category'
               title={category.name}
               onPress={handleOpenSelectCategoryModal}
             />
@@ -180,7 +176,7 @@ export function Register() {
           />
         </Form>
 
-        <Modal visible={categoryModalOpen} >
+        <Modal testID="modal-category" visible={categoryModalOpen} >
           <CategorySelect
             category={category}
             setCategory={setCategory}
