@@ -14,8 +14,6 @@ jest.mock('expo-auth-session', () => {
   }
 })
 
-
-
 describe('Auth Hook', () => {
   it('should be able to sign in with Google account existing', async () => {
     global.fetch = jest.fn(() => Promise.resolve({
